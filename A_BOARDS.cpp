@@ -1,5 +1,6 @@
 #include "A_BOARDS.h"
 #include "types.h"
+#include "funcs.h"
 
 //helper function we can call on to check wrap-around issues and toggle bits on for the attack boards.
 //makes it easier to initialise attack boards later.
@@ -8,10 +9,6 @@ Board KNIGHT_ATTACK[64];
 Board KING_ATTACK[64];
 Board PAWNS_ATTACK[2][64];
 Board RAY_ATTACK[64][8];
-Board ROOK_RAYWALK_ATTACK[64];
-Board BISHOP_RAYS[64];
-Board QUEEN_INTERSECTION[64];
-
 
 
 static void toggleOn(std::uint64_t& attacking, int rank, int file)
@@ -68,8 +65,6 @@ void knight_attacks()
 void pawns_attack()
 {
     for(int square = 0; square < 64; ++square) {
-        
-        
         int rank = square / 8, file = square % 8;
 
         //we need to initialise for the two different-coloured pawn sets
@@ -169,11 +164,20 @@ void rayAttacks()
 
 }
 
+Board rookAttacks(Board occupied, int square) {
+	Board rook_attack = 0;
+	rook_attack |= getPositiveRay(occupied, square, RAY_NORTH) |
+	               getNegativeRay(occupied, square, RAY_SOUTH) |
+	               getPositiveRay(occupied, square, RAY_EAST) |
+	               getNegativeRay(occupied, square, RAY_WEST);
+
+	return rook_attack;
+}
+
 void initialize_attacks()
 {
     king_attacks();
     knight_attacks();
     pawns_attack();
     rayAttacks();
-    
 }

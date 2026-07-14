@@ -1,45 +1,44 @@
 #include "types.h"
+#include "funcs.h"
 
-void printBoard(const Config& bb)
-{
-		char board_arr[64];
-		std::fill(std::begin(board_arr), std::end(board_arr), '.');
+	void set_start_position(Position& b) {
+    b.pieces[WHITE][PAWN]   = 0x000000000000FF00ULL;
+    b.pieces[WHITE][KNIGHT] = 0x0000000000000042ULL;
+    b.pieces[WHITE][BISHOP] = 0x0000000000000024ULL;
+    b.pieces[WHITE][ROOK]   = 0x0000000000000081ULL;
+    b.pieces[WHITE][QUEEN]  = 0x0000000000000008ULL;
+    b.pieces[WHITE][KING]   = 0x0000000000000010ULL;
 
-		auto setUp = [&](std::uint64_t bitboard, char ch)
-		{
-			while(bitboard)
-			{
-				int square = __builtin_ctzll(bitboard);
-				board_arr[square] = ch;
-				bitboard &= bitboard - 1;
-			}
-		};
-		
-				setUp(bb.whitePawns, 'P');
-				setUp(bb.whiteKnights, 'N');
-                setUp(bb.whiteKing, 'K');
-                setUp(bb.whiteQueen, 'Q');
-                setUp(bb.whiteBishops, 'B');
-                setUp(bb.whiteRooks, 'R');
-                
-				setUp(bb.blackPawns, 'p');
-                setUp(bb.blackKnights, 'n');
-                setUp(bb.blackKing, 'k');
-                setUp(bb.blackQueen, 'q');
-                setUp(bb.blackBishops, 'b');
-                setUp(bb.blackRooks, 'r');
+    b.pieces[BLACK][PAWN]   = 0x00FF000000000000ULL;
+    b.pieces[BLACK][KNIGHT] = 0x4200000000000000ULL;
+    b.pieces[BLACK][BISHOP] = 0x2400000000000000ULL;
+    b.pieces[BLACK][ROOK]   = 0x8100000000000000ULL;
+    b.pieces[BLACK][QUEEN]  = 0x0800000000000000ULL;
+    b.pieces[BLACK][KING]   = 0x1000000000000000ULL;
 
-		for(int rank = 7; rank >= 0; --rank)
-		{
-			std::cout << rank + 1 << "\t";
-			for(int file = 0; file < 8; ++file)
-				{
-					std::cout << board_arr[rank * 8 + file] << " ";		
-				}
-			std::cout << '\n';
-		}
-
-		std::cout << '\n';
-		std::cout << "\ta b c d e f g h\n";
-
+    b.sideToMove = WHITE;
+    b.castlingRights = 0b1111;
+    b.enPassantSquare = -1;
+    b.halfmoveClock = 0;
 }
+
+Board side_occupation(const Position& position, Colour colour) {
+	Board occupied = 0;
+		for(int piecetype = PAWN; piecetype < Pieces::NONE; ++piecetype) {
+			occupied |= position.pieces[colour][piecetype];
+		}
+		return occupied;
+}
+
+Board total_occupation(const Position& position) {
+	Board total = 0;
+	for(int i = Colour::WHITE; i <= Colour::BLACK; ++i)
+	{
+	for(int piecetype = PAWN; piecetype < Pieces::NONE; ++piecetype) {
+		total |= position.pieces[i][piecetype];	
+		}
+	}
+	return total;
+}
+
+

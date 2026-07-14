@@ -1,0 +1,66 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-std=c++23",
+      "-o",
+      "main",
+      "main.cpp"
+    ],
+    "directory": "/home/dash/ChessEn/board-rep",
+    "file": "/home/dash/ChessEn/board-rep/main.cpp",
+    "output": "/home/dash/ChessEn/board-rep/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-std=c++23",
+      "-o",
+      "main",
+      "A_BOARDS.cpp"
+    ],
+    "directory": "/home/dash/ChessEn/board-rep",
+    "file": "/home/dash/ChessEn/board-rep/A_BOARDS.cpp",
+    "output": "/home/dash/ChessEn/board-rep/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-std=c++23",
+      "-o",
+      "main",
+      "funcs.cpp"
+    ],
+    "directory": "/home/dash/ChessEn/board-rep",
+    "file": "/home/dash/ChessEn/board-rep/funcs.cpp",
+    "output": "/home/dash/ChessEn/board-rep/main"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-std=c++23",
+      "-o",
+      "main",
+      "types.cpp"
+    ],
+    "directory": "/home/dash/ChessEn/board-rep",
+    "file": "/home/dash/ChessEn/board-rep/types.cpp",
+    "output": "/home/dash/ChessEn/board-rep/main"
+  }
+]
