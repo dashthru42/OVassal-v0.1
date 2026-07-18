@@ -1,15 +1,18 @@
 #include <iostream>
-#include <cstdio>
-#include "A_BOARDS.h"
 #include "types.h"
 #include "funcs.h"
 
-void print_bitboard(std::uint64_t bitboard) {
-    for(int rank = 8; rank > 0; ++rank) {
-        std::cout << rank << '\t';
-          for(int file = 0; file < 8; ++file) {
-              
-          }
+void printPosition(const Position& position) {
+    static const pieceChar symbols[2][6] = {
+        {pieceChar::WhitePawn, pieceChar::WhiteKnight, pieceChar::WhiteBishop,
+    pieceChar::WhiteRook, pieceChar::WhiteQueen, pieceChar::WhiteKing},
+        {pieceChar::BlackPawn, pieceChar::BlackKnight, pieceChar::BlackBishop,
+         pieceChar::BlackRook, pieceChar::BlackQueen, pieceChar::BlackKing}
+     };
+
+        
+            }
+        }
     }
 }
 
@@ -18,6 +21,7 @@ int main()
     Position game;
     set_start_position(game);
 
+    printPosition(total_occupation(game));
 	
     return 0;
 }

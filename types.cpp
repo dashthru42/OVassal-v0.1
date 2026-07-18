@@ -1,5 +1,5 @@
 #include "types.h"
-#include "funcs.h"
+
 
 	void set_start_position(Position& b) {
     b.pieces[WHITE][PAWN]   = 0x000000000000FF00ULL;
@@ -17,9 +17,15 @@
     b.pieces[BLACK][KING]   = 0x1000000000000000ULL;
 
     b.sideToMove = WHITE;
-    b.castlingRights = 0b1111;
+    
+    b.whiteKingCastle = true;
+    b.whiteQueenCastle = true;
+    b.blackKingCastle = true;
+    b.blackQueenCastle = true;
+    
     b.enPassantSquare = -1;
     b.halfmoveClock = 0;
+    b.fullMove = 1;
 }
 
 Board side_occupation(const Position& position, Colour colour) {

@@ -1,1 +1,6 @@
-
+{
+  "engine_name": "OVassal",
+  "author": "Ok_split!97",  
+  "use_opening_book": false,
+  "threads": 1
+}

@@ -65,23 +65,38 @@ enum Pieces {
 	NONE
 };
 
-enum PieceChar {
-	PAWN_piece = 'P',
-	KNIGHT_piece = 'N',
-	BISHOP_piece = 'B',
-	ROOK_piece = 'R',
-	QUEEN_piece = 'Q',
-	KING_piece = 'K'
+enum class pieceChar : char32_t  {
+		WhiteKing   = U'♔', // 0x2654
+    WhiteQueen  = U'♕', // 0x2655
+    WhiteRook   = U'♖', // 0x2656
+    WhiteBishop = U'♗', // 0x2657
+    WhiteKnight = U'♘', // 0x2658
+    WhitePawn   = U'♙', // 0x2659
+    
+	 	BlackKing   = U'♚', // 0x265A
+    BlackQueen  = U'♛', // 0x265B
+    BlackRook   = U'♜', // 0x265C
+    BlackBishop = U'♝', // 0x265D
+    BlackKnight = U'♞', // 0x265E
+    BlackPawn   = U'♟'  // 0x265F		
 };
 
 struct Position
 {
 	Board pieces[2][6];
+
 	Colour sideToMove;
+
 	int halfmoveClock;
-	int enPassantSquare;
-	int castlingRights;
-		
+
+	int fullMove;
+
+	int enPassantSquare = -1;
+	
+	bool whiteKingCastle;
+	bool whiteQueenCastle;
+	bool blackKingCastle;
+	bool blackQueenCastle;
 };
  
 void set_start_position(Position& b);
