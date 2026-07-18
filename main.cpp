@@ -1,6 +1,4 @@
-#include <iostream>
-#include "types.h"
-#include "funcs.h"
+#include "position.h"
 
 void printPosition(const Position& position) {
     static const pieceChar symbols[2][6] = {
@@ -21,7 +19,6 @@ int main()
     Position game;
     set_start_position(game);
 
-    printPosition(total_occupation(game));
 	
     return 0;
 }

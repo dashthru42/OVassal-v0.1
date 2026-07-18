@@ -1,9 +1,8 @@
 //creating attack boards for non-sliding pieces
-#ifndef A_BOARDS_H
-#define A_BOARDS_H
+#ifndef ATTACKS_H
+#define ATTACKS_H
 
-#include <cstdint>
-#include "types.h"
+#include "position.h"
 
 //initialise an array of sixty-four bitboards per piece type; individual attack bitboards will be stored
 //which will toggle on attacked squares per given origin point; e.g. KNIGHT_ATTACK[eighteen] = attack_board will toggle

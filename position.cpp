@@ -1,4 +1,4 @@
-#include "types.h"
+#include "position.h"
 
 
 	void set_start_position(Position& b) {

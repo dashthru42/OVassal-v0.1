@@ -1,9 +1,8 @@
-#include "funcs.h"
-#include "types.h"
-#include "A_BOARDS.h"
+#include "utilities.h"
+#include "position.h"
+#include "attacks.h"
 #include <cctype>
 #include <sstream>
-#include <algorithm>
 
 int getLSB(std::uint64_t board) {
 		if(board == 0) return -1;
@@ -28,7 +27,7 @@ bool isSquareOccupied(std::uint64_t board, int square) {
    return (board & (1ULL << square)) != 0;
 }
 
-Position setFEN(const std::string fen) {
+Position setFEN(std::string fen) {
 		//clear the bitboards
 
 		Position board {};

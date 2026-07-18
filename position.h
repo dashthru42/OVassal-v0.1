@@ -1,12 +1,9 @@
-// board representation, bitboard
+// board representation, bitboards
 
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef POSITION_H
+#define POSITION_H
 
-#include <iostream>
 #include <cstdint>
-#include <algorithm>
-#include <bit> //for std::countr_zero
 
 using Board = std::uint64_t;
 

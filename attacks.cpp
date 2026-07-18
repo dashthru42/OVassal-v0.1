@@ -1,6 +1,6 @@
-#include "A_BOARDS.h"
-#include "types.h"
-#include "funcs.h"
+#include "attacks.h"
+#include "position.h"
+#include "utilities.h"
 
 //helper function we can call on to check wrap-around issues and toggle bits on for the attack boards.
 //makes it easier to initialise attack boards later.
